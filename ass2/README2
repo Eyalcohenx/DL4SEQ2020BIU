@@ -1,0 +1,17 @@
+This is README file for tagger2:
+The tagger is assuming the ner and pos directories and the vocab and word vectors files are in the same directory of the code
+each epoch it will print the accuracy on the dev set
+
+the default parameters are:
+mid_dim = int((DIM * 5 + out_dim) / 2)
+alpha = 0.5 (divided by 2 every 5 epochs)
+epochs = 25
+batch_size = 256
+rounds_per_epoch = 4096
+
+the running command is:(you can change the parameters inside the file)
+python3 tagger2.py <trainer_state(pos/ner)>
+
+
+for example:
+"python3 tagger2.py pos" will run the tagger on the pos data

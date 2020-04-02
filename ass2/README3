@@ -1,0 +1,30 @@
+This is README file for tagger3 and tagger3_no_emb:
+The tagger is assuming the ner and pos directories and the vocab and word vectors files are in the same directory of the code
+each epoch it will print the accuracy on the dev set
+we decided to make two files this time one for the tagger with the pre-trained embedding and one for the tagger without embedding
+
+the default parameters for tagger3 with the pre-trained embeddings are:
+mid_dim = int((DIM * 5 + out_dim) / 2)
+alpha = 0.5 (divided by 2 every 5 epochs)
+epochs = 5
+batch_size = 256
+rounds_per_epoch = 4096
+
+the default parameters for tagger3 without the pre-trained embeddings are:
+mid_dim = int((DIM * 5 + out_dim) / 2)
+alpha = 0.1 (divided by 2 every 7 epochs)
+epochs = 15
+batch_size = 256
+rounds_per_epoch = 4096
+
+we recommend you to run the tagger3 without the pre-trained embedding.
+the preparation time of the tagger3.py is very long.
+even though, the best results are from the tagger3.py model (witch is with the pre-trained embedding)
+
+the running command is:(you can change the parameters inside the file)
+python3 tagger3.py <trainer_state(pos/ner)>
+or if you want to run the pre trained embedded code
+python3 tagger3_no_emb.py <trainer_state(pos/ner)>
+
+for example:
+"python3 tagger3.py pos" will run the tagger on the pos data
